@@ -16,3 +16,6 @@ services:
       - POSTGRES_USER=gwb
       - POSTGRES_PASSWORD=gwb
       - POSTGRES_DB=gwb
+    volumes:
+      # files are executed only once at docker run
+      - ./postgres/initdb:/docker-entrypoint-initdb.d
