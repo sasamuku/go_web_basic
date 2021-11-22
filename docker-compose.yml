@@ -1,0 +1,18 @@
+version: '3'
+ 
+services:
+  app:
+    build:
+      context: .
+      dockerfile: dockerfiles/app/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+ 
+  postgres:
+    image: postgres:latest
+    environment:
+      - POSTGRES_USER=gwb
+      - POSTGRES_PASSWORD=gwb
+      - POSTGRES_DB=gwb
